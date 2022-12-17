@@ -19,16 +19,7 @@ var sum_to_n_b = function (n) {
 };
 
 var sum_to_n_c = function (n) {
-  if (!(Number.isInteger(n))) return "input not a number or negative";
-  let sum = 0;
-  let orginal = n;
-  do {
-    sum += n;
-    // orginal > 0 ? sum += n: sum -= n;
-    // orginal > 0 ? n-- : n++;
-    n--;
-  } while (n >= 0);
-  return sum;
+  return (n * (n + 1)) / 2;
 };
 
 // console.log(`sum_to_n_a in:5 =  ${sum_to_n_a(5)}`);
@@ -43,7 +34,6 @@ var sum_to_n_c = function (n) {
 // console.log(sum_to_n_b(0));
 // console.log(sum_to_n_b(-5));
 // console.log(sum_to_n_b("5"));
-
 
 console.log(sum_to_n_c(5));
 // console.log(sum_to_n_c(0));

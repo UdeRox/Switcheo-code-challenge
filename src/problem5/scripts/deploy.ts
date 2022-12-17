@@ -7,8 +7,13 @@ async function main() {
 
   const lockedAmount = ethers.utils.parseEther("1");
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  // const Lock = await ethers.getContractFactory("Lock");
+  // const Lock = await ethers.getContractFactory("Token");
+  // const Lock = await ethers.getContractFactory("MyERC20Token");
+  // const Lock = await ethers.getContractFactory("My2ERC20Token");
+  const Lock = await ethers.getContractFactory("TokenBalanceUtility");
+  // const lock = await Lock.deploy(unlockTim÷e, { value: lockedAmount });
+  const lock = await Lock.deploy();
 
   await lock.deployed();
 
