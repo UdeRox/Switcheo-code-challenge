@@ -1,38 +1,43 @@
 import {
   Avatar,
+  Box,
   Brightness4Icon,
   Brightness7Icon,
   Grid,
   IconButton,
   useTheme,
 } from "@/lib/ui";
-import React from "react";
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
-export const HeaderBar = () => {
+interface HeaderBar {
+  buttonClick: () => void;
+}
+
+export const HeaderBar = ({ buttonClick }: HeaderBar) => {
   const theme = useTheme();
-  const colorMode = React.useContext(ColorModeContext);
   return (
     <>
-      <Grid container direction="row">
-        <Grid item>Fancy Form</Grid>
-        <Grid item>
-          <IconButton
-            sx={{ ml: 1 }}
-            onClick={colorMode.toggleColorMode}
-            color="inherit"
-          >
-            {theme.palette.mode === "dark" ? (
-              <Brightness7Icon />
-            ) : (
-              <Brightness4Icon />
-            )}
-          </IconButton>
+      <Box sx={{ p: 1 }}>
+        <Grid
+          container
+          direction={"row"}
+          alignItems="center"
+          justifyContent="flex-end"
+          spacing={1}
+        >
+          <Grid item>
+            <IconButton sx={{ ml: 1 }} onClick={buttonClick} color="inherit">
+              {theme.palette.mode === "dark" ? (
+                <Brightness7Icon />
+              ) : (
+                <Brightness4Icon />
+              )}
+            </IconButton>
+          </Grid>
+          <Grid item>
+            <Avatar sx={{ width: 24, height: 24 }} />
+          </Grid>
         </Grid>
-        <Grid item>
-          <Avatar />
-        </Grid>
-      </Grid>
+      </Box>
     </>
   );
 };
