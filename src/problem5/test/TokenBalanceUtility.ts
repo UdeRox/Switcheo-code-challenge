@@ -73,8 +73,6 @@ describe("TokeBalanceUtility", () => {
   beforeEach(async () => {
     TokenUtil = await ethers.getContractFactory("TokenBalanceUtility");
     token = await TokenUtil.deploy();
-    // const Mytoken2 = await deployments.getAddress('My2ERC20Token');
-    // myERC20Token = await ethers.getContractAt(MyERC20Token, myToken);
     [owner, add1, deployer] = await ethers.getSigners();
   });
 
